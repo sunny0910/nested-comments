@@ -1,0 +1,4 @@
+node_modules
+.env
+view/node_modules
+view/build
