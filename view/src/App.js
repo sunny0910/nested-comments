@@ -18,9 +18,7 @@ class App extends Component {
     this.state = {
       loggedIn: getDataFromCookie("userId") === "" ? false : true,
       userId: getDataFromCookie("userId"),
-      jwtToken: getDataFromCookie("token"),
-      // serverError: false,
-      // unAuthorised: false,
+      jwtToken: getDataFromCookie("token")
     };
   }
 

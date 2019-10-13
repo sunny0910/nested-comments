@@ -69,16 +69,6 @@ class Post extends Component {
             result
               .json()
               .then(json => {
-                //   if (replyComment === true) {
-                //     this.setState((prevState, props) => ({
-                //         comments: prevState.comments.concat([json.comment])
-                //     }))
-                //   } else {
-                //       this.setState((prevState, props) => ({
-                //           comment: "",
-                //           comments: prevState.comments.concat([json.comment])
-                //       }))
-                //   }
                     this.getData();
               })
               .catch(err => {
@@ -92,27 +82,6 @@ class Post extends Component {
     refreshCommentsAfterEdit = (editedComment) => {
         this.getData();
         return
-        // let index;
-        // let comments = this.state.comments
-        //     for (let [id, comment] of Object.entries(this.state.comments)) {
-        //         if (comment._id === editedComment.id) {
-        //             index = id
-        //             comments[index].commentText = editedComment.commentText
-        //             break;
-        //         }
-        //     }
-        //     // this.state.comments.filter((comment, i) => {if (comment._id === editedComment.id) {index = i; return comment} return false})
-        //     for (let [id, comment] of Object.entries(this.state.comments)) {
-        //         if (comment._id === editedComment.parentId) {
-        //             index = id
-        //             comments[index].children = {...comments[index].children, ...editedComment}
-        //         }
-        //     }
-        //     // this.state.comments.filter((comment, i) => {if (comment.id === editedComment.parentId) {index = i; return comment} return false})
-        //     // comments[index].children.concat(editedComment)
-        // this.setState({
-        //     comments: comments
-        // })
     }
 
     displayComments = (allComments) => {

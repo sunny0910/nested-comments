@@ -81,14 +81,7 @@ class Comment extends Component {
         let comment = this.props.commentData;
         let date = new Date(comment.postedDate).toLocaleString();
         let replyActionsStyle = {backgroundColor: '#2196f3', margin: "5px 0 0 5px", lineHeight: "1"};
-        // let className = comment.depth == 1 ? "single-comment" : "child-comment";
         let marginleft = (comment.depth-1)*10+'%';
-        // .single-comment {
-        //     margin: 0.5% 0;
-        //   }
-        //   .child-comment {
-        //     margin: 0.5% 0 0 10% 
-        //   }
         return (
             <div className='single-comment' style={{marginLeft: marginleft}}>
                 <div className="comment-header">
