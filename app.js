@@ -35,6 +35,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/comments', commentsRouter);
 app.use('/api/v1/users', usersRouter);
 
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, 'view/build')))
+// Anything that doesn't match the above, send back index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/view/build/index.html'))
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

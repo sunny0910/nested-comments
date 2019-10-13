@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start_dev": "nodemon ./bin/www"
+    "start_dev": "nodemon ./bin/www",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "@material-ui/core": "^4.5.0",
