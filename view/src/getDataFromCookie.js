@@ -6,6 +6,8 @@ const getDataFromCookie = key => {
       x = a.filter(row => row[0] === "token");
     } else if (key === "userId") {
       x = a.filter(row => row[0] === "userId");
+    } else if (key === "name") {
+        x = a.filter(row => row[0] === "name");
     }
     return x.length === 0 ? "" : x[0][1];
   };

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import Header from './components/header';
 import './App.css';
 import Post from './components/post';
+import Login from './components/forms/login';
+import Register from './components/forms/register';
 import {
   BrowserRouter as Router,
   Route,
@@ -16,46 +18,60 @@ class App extends Component {
     this.state = {
       loggedIn: getDataFromCookie("userId") === "" ? false : true,
       userId: getDataFromCookie("userId"),
-      // userRoleId: getDataFromCookie("userRoleId"),
       jwtToken: getDataFromCookie("token"),
       // serverError: false,
       // unAuthorised: false,
-      // productsInCartCount: getDataFromCookie("productsInCartCount"),
-      // productsInCart: getDataFromCookie("productsInCart"),
-      // roles: []
     };
   }
+
+  userLogIn = (loggedIn, token, id, name) => {
+    this.setState({
+      userId: id,
+      loggedIn: loggedIn,
+      jwtToken: token
+    });
+    document.cookie = "token=" + token + "; path=/";
+    document.cookie = "userId=" + id + "; path=/";
+    document.cookie = "name=" + name + "; path=/";
+    return true;
+  }
+
+  logOut = () => {
+    this.setState({
+      loggedIn: false,
+      userId: 0,
+      jwtToken: "",
+    });
+    document.cookie = "token =; expires = 01-10-1995; path=/;";
+    document.cookie = "userId =; expires = 01-10-1995; path=/;";
+  }
+
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */}
         <Router>
+          <Header loggedIn={this.state.loggedIn}
+              logOut={this.logOut} />
           <Switch>
             <Route
               exact
               path = "/"
-              render = {() => (<Post/>)}
+              render = {() => (<Post loggedIn = {this.state.loggedIn}/>)}
             />
             <Route
               exact
               path = "/login"
+              render = {() => this.state.loggedIn ? (<Redirect to="/" />):(<Login userLogIn = {this.userLogIn}/>)}
             />
             <Route
               exact
               path = "/register"
+              render = {() => this.state.loggedIn ? (<Redirect to="/" />):(<Register userLogIn={this.userLogIn} />)}
+            />
+            <Route
+              exact
+              path = "/logout"
+              render = {() => this.state.loggedIn ? this.logOut() : <Redirect to="/" />}
             />
           </Switch>
         </Router>

@@ -1,5 +1,13 @@
 var mongoose = require('mongoose');
 var commentSchema = mongoose.Schema({
+    postId: {
+        type: Number,
+        default: 1
+    },
+    depth: {
+        type: Number,
+        default: 1
+    },
     parentId: {
         type: mongoose.Schema.Types.ObjectId,
         default: null
