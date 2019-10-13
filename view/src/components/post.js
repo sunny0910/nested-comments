@@ -26,7 +26,7 @@ class Post extends Component {
             result.json()
             .then(json => {
                 let comments =[]
-                for (let [id, comment] of Object.entries(json.comments)) {
+                for (let comment of Object.values(json.comments)) {
                     comments.push(comment)
                 }
                 this.setState({
@@ -86,7 +86,7 @@ class Post extends Component {
 
     displayComments = (allComments) => {
         let comments = []
-        for (let [id, comment] of Object.entries(allComments)) {
+        for (let comment of Object.values(allComments)) {
             comments.push(<Comment
                 loggedIn = {this.props.loggedIn}
                 commentData = {comment}
