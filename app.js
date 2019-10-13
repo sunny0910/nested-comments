@@ -8,7 +8,7 @@ var cors = require('cors');
 require('dotenv').config()
 
 let uri = 'mongodb://localhost:27017/comments'
-if (process.env.ENV == "production") {
+if (process.env.NODE_ENV == "production") {
   uri = `mongodb+srv://${process.env.dbUserName}:${process.env.dbPassword}@cluster0-usyae.mongodb.net/comments?retryWrites=true&w=majority`
 }
 mongoose.Promise = global.Promise;
