@@ -70,7 +70,7 @@ class Comment extends Component {
     }
 
     replySumbit = (parentComment) => {
-        this.props.addComment(true, parentComment, this.state.comment)
+        this.props.addComment(null, true, parentComment, this.state.comment)
         this.setState({
             replyClicked: false,
             comment: ""
@@ -108,6 +108,7 @@ class Comment extends Component {
                         }
                         <Button
                             size="small"
+                            disabled={this.props.commentData.depth > 3}
                             color="primary"
                             variant="contained"
                             style={{backgroundColor: '#2196f3'}}

@@ -47,8 +47,11 @@ class Post extends Component {
         this.setState({comment: e.target.value})
     }
 
-    addComment = (replyComment=false, parentComment=null, commentText=null) => {
+    addComment = (e, replyComment=false, parentComment=null, commentText=null) => {
         if (replyComment === false && this.state.comment === "") {
+            return
+        }
+        if (replyComment && commentText === '') {
             return
         }
         let data = {
