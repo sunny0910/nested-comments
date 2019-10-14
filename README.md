@@ -3,9 +3,9 @@ A NodeJs application which uses MongoDB to store nested/threaded comments.
 User Comments can be one of the primary things in any Social or Collaborative website. The applications like Instagram, YouTube, Reddit etc have great implementations of User Comments.
 
 ## Techincal Specifications
-* The Backend is a REST API built in ExpressJS which is an MVC web-application framework for NodeJs.
-* MongoDB is used for the NoSQL Database along with ExpressJs in the backend Rest API. Mongoose, a MongoDB ODM(object data modelling) has also been used along with MongoDB in the database layer.
-* The Frontend is built using ReactJs along with Material-UI and React-Router.
+* The Backend is a REST API built in ExpressJs which is an MVC web-application framework for NodeJs.
+* MongoDB is used as the NoSQL Database along with ExpressJs in the backend Rest API. Mongoose, a MongoDB ODM(Object Data Mapper) has also been used along with MongoDB in the database layer.
+* The Frontend is built using ReactJs along with React-Router and Material UI as component library.
 
 ## Project Specifications
 * Home page has a demo post where users can add their comments.
@@ -23,9 +23,9 @@ User Comments can be one of the primary things in any Social or Collaborative we
 
 ## Installation
 Clone the repository and Run the following commands in the terminal:
-* ```npm run_script install_all``` (This will install the server's and the client's dependency packages)
-* ```npm start``` (This will start the backend server. Alternatively, you can also run `npm run_script start_dev` to start the server with _nodemon_, which will look for the changes in the files and restart the server everytime)
-* ```cd view && npm start``` (This will start the FrontEnd React application for Dev Environment. For Production, run `npm build` to build the FrontEnd for [deployment](https://bit.ly/CRA-deploy))
+* ```npm run install_all``` (This will install the server's and the client's dependency packages)
+* ```npm start``` (This will start the backend server. Alternatively, you can also run `npm run start_dev` to start the server with `nodemon`, which will look for the changes in the files and restart the server everytime)
+* ```cd view && npm start``` (This will start the Frontend React application for Dev Environment. For Production, run `npm build` to build the FrontEnd for [deployment](https://bit.ly/CRA-deploy))
 
 ## About
 Examples of Threaded Comments?
